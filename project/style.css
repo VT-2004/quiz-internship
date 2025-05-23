@@ -1,0 +1,350 @@
+/* Base styles for larger screens and general layout */
+:root {
+    /* Define base font size for rem units */
+    font-size: 16px; /* This is the default, but explicitly stating helps */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Default text color */
+}
+
+/* Fixed background video styling */
+#myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem; /* Adjusted to rem */
+    border-radius: 10px;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Adjusted to rem */
+    width: 90%;
+    max-width: 45rem; /* max-width: 720px; - Adjusted to rem */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.25rem; /* Add some margin for smaller screens */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem; /* Adjusted to rem */
+    /* Fluid typography for heading */
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Min 1.8rem, Max 2.5rem, fluid between */
+}
+
+/* Timer display styles */
+#timerDisplay {
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Fluid timer font size */
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 1.5rem; /* Adjusted to rem */
+    text-align: center;
+    width: 100%;
+}
+
+#questionDisplay {
+    margin-bottom: 1.5rem; /* Adjusted to rem */
+    text-align: left;
+    padding-bottom: 1.25rem; /* Adjusted to rem */
+    min-height: 9.375rem; /* min-height: 150px; Adjusted to rem */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.question-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem); /* Fluid question text font size */
+    color: #555;
+    margin-bottom: 1rem; /* Adjusted to rem */
+    font-weight: bold;
+}
+
+.answers-container label {
+    display: block;
+    margin-bottom: 0.625rem; /* Adjusted to rem */
+    cursor: pointer;
+    padding: 0.75rem 1rem; /* Adjusted to rem */
+    border-radius: 0.3125rem; /* Adjusted to rem */
+    transition: background-color 0.3s ease;
+    color: #444;
+    font-size: 1rem; /* Base font size, will scale with root rem */
+}
+
+.answers-container label:hover {
+    background-color: #e0e0e0;
+}
+
+.answers-container input[type="radio"] {
+    margin-right: 0.625rem; /* Adjusted to rem */
+    transform: scale(1.2);
+    vertical-align: middle;
+}
+
+.answers-container input[type="radio"]:checked + span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Hint section styles */
+#hintSection {
+    width: 100%;
+    margin-top: 1rem; /* Adjusted to rem */
+    margin-bottom: 0.625rem; /* Adjusted to rem */
+    text-align: center;
+}
+
+#showHintBtn {
+    background-color: #17a2b8; /* Info blue */
+    color: white;
+    padding: 0.5rem 0.9375rem; /* Adjusted to rem */
+    border: none;
+    border-radius: 0.3125rem; /* Adjusted to rem */
+    font-size: 0.8rem; /* Adjusted to rem */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.625rem; /* Adjusted to rem */
+}
+
+#showHintBtn:hover {
+    background-color: #138496; /* Darker info blue */
+}
+
+#showHintBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#hintText {
+    background-color: #e2f0fb; /* Light blue background */
+    border: 1px solid #b1d8f1;
+    padding: 0.75rem; /* Adjusted to rem */
+    border-radius: 0.3125rem; /* Adjusted to rem */
+    font-style: italic;
+    color: #333;
+    font-size: 0.9rem; /* Adjusted to rem */
+    display: none; /* Hidden by default */
+    text-align: left;
+}
+
+
+.button-group {
+    display: flex; /* Buttons in a row by default */
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1.25rem; /* Adjusted to rem */
+    flex-wrap: wrap; /* Allow buttons to wrap if needed */
+    gap: 0.625rem; /* Adjusted to rem */
+}
+
+.button-group button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5625rem; /* Adjusted to rem */
+    border: none;
+    border-radius: 0.3125rem; /* Adjusted to rem */
+    font-size: 1.05rem; /* Slightly smaller base font */
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    flex-grow: 1;
+    flex-basis: auto;
+    margin: 0;
+    min-width: 7.5rem; /* min-width: 120px; Adjusted to rem */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 1.875rem; /* Adjusted to rem */
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Fluid result font size */
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+.feedback-message {
+    margin-top: 0.9375rem; /* Adjusted to rem */
+    font-size: 1rem; /* Adjusted to rem */
+    color: #666;
+    width: 100%;
+}
+
+/* New styles for detailed results section */
+#detailedResults {
+    margin-top: 2.5rem; /* Adjusted to rem */
+    text-align: left;
+    width: 100%;
+    padding-top: 1.25rem; /* Adjusted to rem */
+    border-top: 1px solid #eee;
+}
+
+#detailedResults h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem; /* Adjusted to rem */
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Fluid detailed results heading */
+}
+
+.question-result-item {
+    margin-bottom: 1.25rem; /* Adjusted to rem */
+    padding-bottom: 0.9375rem; /* Adjusted to rem */
+    border-bottom: 1px dashed #ddd;
+    color: #444;
+}
+.question-result-item:last-of-type {
+    border-bottom: none;
+}
+
+.question-result-item p {
+    margin: 0.3125rem 0; /* Adjusted to rem */
+    line-height: 1.4;
+    font-size: 0.95rem; /* Adjusted to rem */
+}
+
+.question-result-item strong {
+    color: #222;
+}
+
+.user-answer.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.user-answer.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+.user-answer.not-selected {
+    color: #888;
+    font-style: italic;
+}
+
+.correct-answer-text {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablets in portrait, large phones (or when screen width is less than 768px) */
+@media (max-width: 48rem) { /* 768px / 16 = 48rem */
+    .quiz-container {
+        padding: 1.5rem; /* Adjusted to rem */
+        margin: 1rem; /* Adjusted to rem */
+    }
+
+    .answers-container label {
+        font-size: 0.95rem; /* Slightly smaller on tablets */
+        padding: 0.625rem 0.8rem; /* Adjusted to rem */
+    }
+
+    .button-group button {
+        padding: 0.625rem 1.25rem; /* Adjusted to rem */
+        font-size: 0.95rem; /* Adjusted to rem */
+    }
+
+    #hintText {
+        font-size: 0.85rem;
+        padding: 0.625rem;
+    }
+}
+
+/* Most mobile phones (or when screen width is less than 480px) */
+@media (max-width: 30rem) { /* 480px / 16 = 30rem */
+    .quiz-container {
+        padding: 1rem; /* Adjusted to rem */
+        margin: 0.625rem; /* Adjusted to rem */
+        border-radius: 0.5rem; /* Adjusted to rem */
+    }
+
+    h1 {
+        margin-bottom: 1.25rem; /* Adjusted to rem */
+    }
+
+    #timerDisplay {
+        margin-bottom: 1rem;
+    }
+
+    .question-text {
+        font-size: 1rem; /* Adjusted to rem */
+        margin-bottom: 0.625rem; /* Adjusted to rem */
+    }
+
+    .answers-container label {
+        font-size: 0.9rem; /* Adjusted to rem */
+        padding: 0.5rem 0.625rem; /* Adjusted to rem */
+        margin-bottom: 0.5rem; /* Adjusted to rem */
+    }
+
+    .answers-container input[type="radio"] {
+        transform: scale(1.1);
+    }
+
+    #showHintBtn {
+        padding: 0.375rem 0.75rem; /* Adjusted to rem */
+        font-size: 0.75rem; /* Adjusted to rem */
+    }
+
+    #hintText {
+        font-size: 0.8rem; /* Adjusted to rem */
+        padding: 0.5rem; /* Adjusted to rem */
+    }
+
+    .button-group {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 0.625rem; /* Adjusted to rem */
+    }
+
+    .button-group button {
+        width: 100%; /* Full width when stacked */
+        flex-grow: 0; /* Important: reset flex-grow when stacking */
+        flex-basis: auto; /* Reset flex-basis */
+        margin: 0; /* Ensure no residual horizontal margins */
+        padding: 0.625rem 0.9375rem; /* Adjusted to rem */
+        font-size: 0.95rem; /* Adjusted to rem */
+    }
+
+    #result {
+        margin-top: 1.25rem; /* Adjusted to rem */
+    }
+
+    .feedback-message {
+        font-size: 0.9rem; /* Adjusted to rem */
+    }
+
+    #detailedResults h2 {
+        margin-bottom: 1rem; /* Adjusted to rem */
+    }
+
+    .question-result-item p {
+        font-size: 0.85rem; /* Adjusted to rem */
+    }
+}
